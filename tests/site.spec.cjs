@@ -186,3 +186,37 @@ for (const width of [390, 1440]) {
     expect(external).toEqual([]);
   });
 }
+
+test("Premium V2 enquiry link and motion preferences work with keyboard navigation", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const enquiry = page.getByRole("link", {
+    name: "Ihr Vorhaben. Unser Einsatz. Anfrage starten",
+  });
+  await enquiry.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#kontakt$/);
+  const service = page.locator('[data-service="Privatumzug"]');
+  await service.focus();
+  await expect(service.locator("xpath=..")).toHaveClass(/is-visible/);
+  await expect(service).toBeFocused();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  expect(
+    await page
+      .locator(".will-reveal")
+      .evaluateAll((elements) =>
+        elements.every(
+          (element) =>
+            getComputedStyle(element).opacity === "1" &&
+            getComputedStyle(element).transform === "none",
+        ),
+      ),
+  ).toBe(true);
+  expect(
+    await page
+      .locator(".editorial-photo")
+      .first()
+      .evaluate((element) => getComputedStyle(element).transitionDuration),
+  ).toBe("0s");
+});

@@ -36,11 +36,9 @@ if (menuToggle && navigation) {
   window.matchMedia("(min-width: 901px)").addEventListener("change", closeMenu);
 }
 
-// Content stays visible if JavaScript or IntersectionObserver is unavailable.
-if (
-  "IntersectionObserver" in window &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-) {
+// Reveal once; keep keyboard targets and live reduced-motion changes visible.
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+if ("IntersectionObserver" in window && !motionPreference.matches) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -52,6 +50,20 @@ if (
     },
     { threshold: 0.08 },
   );
+  const reveal = (element) => {
+    element.classList.add("is-visible");
+    observer.unobserve(element);
+  };
+  document.addEventListener("focusin", (event) => {
+    const element = event.target.closest(".reveal");
+    if (element) reveal(element);
+  });
+  motionPreference.addEventListener("change", (event) => {
+    if (event.matches) {
+      document.querySelectorAll(".will-reveal").forEach(reveal);
+      observer.disconnect();
+    }
+  });
   document.querySelectorAll(".reveal").forEach((element) => {
     element.classList.add("will-reveal");
     observer.observe(element);

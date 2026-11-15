@@ -29,7 +29,7 @@ Wenn ein System-Chromium vorhanden ist, entfällt der Browser-Download:
 CHROMIUM_PATH=/usr/bin/chromium npm test
 ```
 
-Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 13 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
+Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 14 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
 
 ## Dateien
 
@@ -52,6 +52,10 @@ Aus der bestehenden Website übernommen:
 Das Formular validiert die Angaben und erstellt einen codierten `mailto:`-Link. Nutzende öffnen diesen anschliessend im E-Mail-Programm und senden die Nachricht selbst. Der Text bleibt zusätzlich zum Kopieren verfügbar, auch ohne Clipboard-Berechtigung. Es gibt keinen Versand-Endpunkt, keine automatische Zustellung und keine Speicherung im Browser oder auf einem Anwendungsserver. Ohne JavaScript bleibt die native `mailto:`-Formularaktion verfügbar. Telefonnummer und E-Mail-Adresse sind immer direkt verlinkt.
 
 Die Website lädt keine externen Schriften, Tracking-Skripte oder anderen externen Ressourcen. Es wurden keine Bewertungen, Zertifizierungen, Preise, Öffnungszeiten oder Angaben zur Firmengeschichte ergänzt.
+
+## Premium V2
+
+`feature/premium-v2` verfeinert die bestehende Gestaltung: dreizeiliger Titel, gerahmtes Startbild mit direktem Anfragelink, zweispaltige Leistungskarten mit seitlichen Bildern auf grossen Bildschirmen und gestapelte Karten auf Mobilgeräten. Inhalte, Kontaktdaten und lizenzierte Bilder bleiben erhalten. Hover-Effekte sind dezent; einmalige Scroll-Einblendungen berücksichtigen Tastaturfokus und Änderungen an der Einstellung für reduzierte Bewegung. Es wurden keine zusätzlichen Bibliotheken, Schriften oder Bilddateien eingebunden.
 
 ## Fotografien
 
