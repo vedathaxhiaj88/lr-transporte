@@ -2490,3 +2490,57 @@ h2 {
 .button {
   color: #fff;
 }
+
+/* Transport leads; moving and disposal remain complementary. */
+.primary-services .service-link {
+  border-top: 3px solid var(--orange);
+}
+.secondary-services-heading {
+  margin-block: 46px 22px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.secondary-services-heading .eyebrow {
+  margin-bottom: 10px;
+}
+.secondary-services-heading h3 {
+  font-size: 24px;
+}
+.secondary-services .service-link {
+  min-height: 220px;
+}
+.secondary-services .service-image,
+.secondary-services .text-card-top {
+  min-height: 220px;
+}
+.secondary-services .service-copy {
+  padding: 24px;
+}
+.secondary-services .service-copy h3 {
+  font-size: 22px;
+}
+.secondary-services .service-copy p {
+  font-size: 13px;
+  margin-block: 12px 18px;
+}
+.disposal-card .service-link {
+  background: var(--sand);
+  color: var(--ink);
+  border-color: var(--line);
+}
+.disposal-card p {
+  color: var(--muted);
+}
+.disposal-card .service-cta {
+  border-color: var(--line);
+}
+.disposal-symbol {
+  color: var(--orange);
+}
+@media (max-width: 900px) {
+  .secondary-services .service-image,
+  .secondary-services .text-card-top {
+    height: 160px;
+    min-height: 160px;
+  }
+}

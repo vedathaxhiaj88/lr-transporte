@@ -1,6 +1,6 @@
 # L&R Transporte Selmani
 
-Statische Website-Demo in de-CH für Privatumzüge, Möbeltransporte, Kleintransporte und Entsorgung. HTML, CSS und JavaScript ohne Laufzeit-Abhängigkeiten oder Build-Schritt.
+Statische Website-Demo in de-CH für Transporte, Kleintransporte und Möbeltransporte sowie ergänzend Privatumzüge und Entsorgung. HTML, CSS und JavaScript ohne Laufzeit-Abhängigkeiten oder Build-Schritt.
 
 ## Lokal starten
 
@@ -29,7 +29,7 @@ Wenn ein System-Chromium vorhanden ist, entfällt der Browser-Download:
 CHROMIUM_PATH=/usr/bin/chromium npm test
 ```
 
-Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 15 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
+Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 16 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
 
 ## Dateien
 
@@ -68,3 +68,5 @@ Drei visuell geprüfte Pexels-Symbolbilder ergänzen das Startbild und die Leist
 Canonical-URL und `og:url` werden erst ergänzt, wenn die endgültige öffentliche Website-Adresse feststeht. Der dezente Hinweis «Website-Demo» bleibt sichtbar. Die Arbeiten liegen auf `feature/premium-redesign`; es wurde weder nach `main` gemergt noch zu Cloudflare deployt.
 
 Die aktuelle Markenfassung verwendet Orange, Anthrazit und Weiss sowie ein anhand der bereitgestellten Visitenkarte nachgezeichnetes LR-Zeichen. Die aktuellen Mobilnummern stammen aus den ausdrücklichen Angaben des Auftraggebers.
+
+Transporte bilden den Schwerpunkt von Titel, Metadaten, Startbereich, Leistungsübersicht und Anfrageformular. Kleintransporte und Möbeltransporte stehen zuerst; Privatumzüge und Entsorgung sind als ergänzende Leistungen gruppiert.

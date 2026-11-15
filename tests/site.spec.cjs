@@ -14,7 +14,7 @@ test("all local assets load and verified business details remain available", asy
   await page.goto("/");
   await expect(page).toHaveTitle(/L&R Transporte Selmani/);
   await expect(page.locator("html")).toHaveAttribute("lang", "de-CH");
-  await expect(page.locator("h1")).toContainText("Ein neuer Ort.");
+  await expect(page.locator("h1")).toContainText("Transporte.");
   await expect(page.locator(".service-card")).toHaveCount(4);
   await expect(page.locator(".contact-phone")).toHaveAttribute(
     "href",
@@ -192,7 +192,7 @@ test("Premium V2 enquiry link and motion preferences work with keyboard navigati
 }) => {
   await page.goto("/");
   const enquiry = page.getByRole("link", {
-    name: "Ihr Vorhaben. Unser Einsatz. Anfrage starten",
+    name: "Ihr Transport. Unser Einsatz. Transport anfragen",
   });
   await enquiry.focus();
   await page.keyboard.press("Enter");
@@ -262,4 +262,32 @@ test("business-card contacts and every local link resolve", async ({
     "+41799076396",
     "+41765026171",
   ]);
+});
+
+test("transport leads the service hierarchy and enquiry default", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".primary-services h3")).toHaveText([
+    "Kleintransporte",
+    "Möbeltransporte",
+  ]);
+  await expect(page.locator(".secondary-services h3")).toHaveText([
+    "Privatumzüge",
+    "Entsorgung",
+  ]);
+  await expect(page.locator("#service")).toHaveValue("Transport");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /^Transporte, Kleintransporte und Möbeltransporte/,
+  );
+  for (const service of [
+    "Kleintransport",
+    "Möbeltransport",
+    "Privatumzug",
+    "Entsorgung",
+  ]) {
+    await page.locator(`[data-service="${service}"]`).click();
+    await expect(page.locator("#service")).toHaveValue(service);
+  }
 });
