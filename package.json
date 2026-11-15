@@ -1,0 +1,16 @@
+{
+  "name": "lr-transporte-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static de-CH website for L&R Transporte Selmani",
+  "scripts": {
+    "start": "python3 -m http.server 8000 --bind 0.0.0.0",
+    "check": "node --check script.js && prettier --check index.html bildnachweise.html styles.css script.js playwright.config.cjs tests/site.spec.cjs package.json README.md",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.1",
+    "@playwright/test": "1.58.2",
+    "prettier": "3.5.3"
+  }
+}
