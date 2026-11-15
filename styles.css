@@ -6,13 +6,13 @@
   font-display: swap;
 }
 :root {
-  --ink: #173e35;
-  --ink-deep: #103127;
-  --lime: #d6e8ac;
-  --paper: #fbfaf7;
-  --sand: #f0eee7;
-  --line: #dcded5;
-  --muted: #536257;
+  --ink: #303438;
+  --ink-deep: #222629;
+  --lime: #f1b396;
+  --paper: #ffffff;
+  --sand: #f3f3f1;
+  --line: #dededb;
+  --muted: #55595b;
   --white: #fff;
   --radius: 3px;
   --container: 1280px;
@@ -181,7 +181,7 @@ p {
 }
 .utility-bar {
   background: var(--ink);
-  color: #eef3e9;
+  color: #e2e3e3;
   font-size: 10px;
   letter-spacing: 0.015em;
 }
@@ -202,9 +202,9 @@ p {
 .site-header {
   position: sticky;
   top: 0;
-  background: rgb(251 250 247 / 97%);
+  background: rgb(255 255 255 / 97%);
   z-index: 20;
-  border-bottom: 1px solid rgb(23 62 53 / 8%);
+  border-bottom: 1px solid rgb(48 52 56 / 8%);
 }
 .header-inner {
   display: flex;
@@ -230,10 +230,10 @@ p {
   font-size: 0.8em;
 }
 .brand-dot {
-  color: #8aa46b;
+  color: #b44723;
 }
 .brand-name {
-  border-left: 1px solid #b2bdb0;
+  border-left: 1px solid #dededb;
   padding-left: 15px;
   font-size: 11px;
   font-weight: 800;
@@ -258,7 +258,7 @@ p {
   padding-block: 12px;
 }
 .main-nav > a:not(.button):hover {
-  color: #5b7443;
+  color: #b44723;
 }
 .menu-toggle {
   display: none;
@@ -289,7 +289,7 @@ p {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #7b975a;
+  background: #b44723;
   flex-shrink: 0;
 }
 .hero h1 {
@@ -349,7 +349,7 @@ p {
   min-height: 570px;
   border-radius: 140px 3px 3px 3px;
   overflow: hidden;
-  background: #ccd2c5;
+  background: #dededb;
 }
 
 .image-tag {
@@ -393,7 +393,7 @@ p {
 .service-strip span[aria-hidden] {
   font-size: 24px;
   font-weight: 400;
-  color: #7e926a;
+  color: #b44723;
 }
 .section-heading {
   display: flex;
@@ -435,7 +435,7 @@ p {
   height: 210px;
   position: relative;
   overflow: hidden;
-  background: #d1d6cd;
+  background: #dededb;
 }
 
 .service-number {
@@ -459,7 +459,7 @@ p {
   height: 32px;
   display: grid;
   place-items: center;
-  border: 1px solid rgb(23 62 53 / 20%);
+  border: 1px solid rgb(48 52 56 / 20%);
   border-radius: 50%;
   font-size: 20px;
   line-height: 1;
@@ -495,14 +495,14 @@ p {
   align-items: center;
   justify-content: space-between;
   padding-top: 17px;
-  border-top: 1px solid rgb(23 62 53 / 15%);
+  border-top: 1px solid rgb(48 52 56 / 15%);
   gap: 10px;
 }
 .service-cta span {
   font-size: 16px;
 }
 .service-card-text .service-link {
-  background: #e4eacb;
+  background: #f9e7de;
 }
 .text-card-top {
   height: 210px;
@@ -526,7 +526,7 @@ p {
   color: var(--paper);
 }
 .disposal-card p {
-  color: #c4cfc3;
+  color: #e2e3e3;
 }
 .disposal-card .service-cta,
 .disposal-card .round-arrow {
@@ -553,7 +553,7 @@ p {
   gap: 50px;
 }
 .process-grid li {
-  border-top: 1px solid #bfc8b8;
+  border-top: 1px solid #dededb;
   padding-top: 20px;
 }
 .step-number {
@@ -566,7 +566,7 @@ p {
 }
 .step-number > span {
   font-size: 21px;
-  color: #748361;
+  color: #b44723;
 }
 .process-grid h3 {
   font-size: 21px;
@@ -586,7 +586,7 @@ p {
 .about-visual {
   position: relative;
   min-width: 0;
-  background: #cbd3c4;
+  background: #dededb;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -635,7 +635,7 @@ p {
   padding-bottom: 10px;
 }
 .about-values > span > span {
-  color: #718557;
+  color: #b44723;
   font-size: 18px;
 }
 .about-copy > .text-link {
@@ -714,7 +714,7 @@ p {
 }
 .contact-copy > p:not(.eyebrow) {
   font-size: 13px;
-  color: #c6d2c5;
+  color: #e2e3e3;
   max-width: 320px;
   line-height: 1.9;
 }
@@ -749,7 +749,7 @@ p {
   font-style: normal;
   font-size: 12px;
   line-height: 1.9;
-  color: #c6d2c5;
+  color: #e2e3e3;
   margin-top: 38px;
 }
 .contact-copy .contact-note {
@@ -794,7 +794,7 @@ p {
 .form-status textarea {
   background: var(--white);
   color: var(--ink);
-  border: 1px solid #d3d9cf;
+  border: 1px solid #dededb;
   border-radius: 2px;
   width: 100%;
   padding: 12px 13px;
@@ -806,7 +806,7 @@ p {
 }
 .field input::placeholder,
 .field textarea::placeholder {
-  color: #6f786f;
+  color: #666a6c;
   opacity: 1;
 }
 .field textarea,
@@ -827,8 +827,8 @@ p {
   min-height: 53px;
 }
 .form-submit:hover {
-  background: #c8df96;
-  border-color: #c8df96;
+  background: #f9e7de;
+  border-color: #f9e7de;
 }
 .form-note {
   font-size: 9px;
@@ -894,7 +894,7 @@ p {
 .back-top span {
   width: 38px;
   height: 38px;
-  border: 1px solid #bfc8b8;
+  border: 1px solid #dededb;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -905,7 +905,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid #d3d8cc;
+  border-top: 1px solid #dededb;
   padding-top: 22px;
   font-size: 9px;
 }
@@ -921,14 +921,14 @@ p {
   align-items: center;
   gap: 7px;
   font-size: 9px;
-  border: 1px solid #c8d0be;
+  border: 1px solid #dededb;
   border-radius: 20px;
   padding: 4px 10px;
 }
 .demo-badge > span {
   height: 5px;
   width: 5px;
-  background: #7e9267;
+  background: #b44723;
   border-radius: 50%;
 }
 .demo-note {
@@ -1083,7 +1083,7 @@ p {
     align-items: center;
     gap: 9px;
     background: none;
-    border: 1px solid #c7cfc0;
+    border: 1px solid #dededb;
     border-radius: 2px;
     min-height: 44px;
     padding: 9px 12px;
@@ -1399,7 +1399,7 @@ p {
   .service-strip span:not([aria-hidden])::before {
     content: "+";
     margin-right: 12px;
-    color: #688152;
+    color: #b44723;
   }
   .section {
     padding-block: 66px;
@@ -1688,18 +1688,18 @@ p {
   }
   .contact-section {
     background: white;
-    color: #173e35;
+    color: #303438;
   }
   .contact-copy > p:not(.eyebrow),
   .contact-copy address {
-    color: #173e35;
+    color: #303438;
   }
   .will-reveal {
     opacity: 1;
     transform: none;
   }
   a {
-    color: #173e35;
+    color: #303438;
   }
   .site-footer {
     padding: 20px 0;
@@ -1711,7 +1711,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #dce3d4;
+  background: #dededb;
   position: relative;
 }
 .location-canton {
@@ -1730,7 +1730,7 @@ p {
 .location-postcode > span {
   font-size: 0.5em;
   display: block;
-  color: #7a9469;
+  color: #b44723;
   margin-top: 15px;
   margin-left: 5px;
 }
@@ -1909,8 +1909,8 @@ p {
 
 /* Premium V2 — measured Swiss editorial composition. */
 :root {
-  --paper: #faf9f5;
-  --sand: #efeee7;
+  --paper: #ffffff;
+  --sand: #f3f3f1;
   --radius: 6px;
 }
 h1,
@@ -1979,7 +1979,7 @@ h2 {
   display: block;
 }
 .hero h1 .serif-word {
-  color: #526c4e;
+  color: #b44723;
   font-size: 1.13em;
   line-height: 1.03;
   padding-bottom: 0.04em;
@@ -2006,8 +2006,8 @@ h2 {
 .hero-visual {
   min-height: 660px;
   border-radius: 6px 6px 90px 6px;
-  border: 8px solid #e8e9df;
-  background: #e8e9df;
+  border: 8px solid #dededb;
+  background: #dededb;
 }
 .hero-visual > .editorial-photo {
   object-position: 50% 68%;
@@ -2023,11 +2023,11 @@ h2 {
   width: min(280px, calc(100% - 40px));
   border-radius: 4px;
   font-size: 14px;
-  box-shadow: 0 8px 24px #10312712;
+  box-shadow: 0 8px 24px #22262912;
   transition: background 0.2s;
 }
 .image-tag:is(:hover, :focus-visible) {
-  background: #e2efc5;
+  background: #f9e7de;
 }
 .image-tag > span:first-child {
   font-size: 42px;
@@ -2057,8 +2057,8 @@ h2 {
   transform: none;
 }
 .service-link:is(:hover, :focus-visible) {
-  border-color: #82917d;
-  box-shadow: 0 12px 30px #173e350a;
+  border-color: #dededb;
+  box-shadow: 0 12px 30px #3034380a;
 }
 .service-image,
 .text-card-top {
@@ -2092,8 +2092,8 @@ h2 {
   transform: rotate(45deg);
 }
 .service-card-text .service-link {
-  background: #e8ecd9;
-  border-color: #d7ddc9;
+  background: #f9e7de;
+  border-color: #dededb;
 }
 .disposal-card .service-link {
   background: var(--ink);
@@ -2146,7 +2146,7 @@ h2 {
   border-radius: 6px 64px 6px 6px;
 }
 .location-panel {
-  background: #e4e8dc;
+  background: #dededb;
 }
 .faq-list details {
   transition: background 0.2s;
@@ -2176,7 +2176,7 @@ h2 {
 }
 .field :is(input, select, textarea):focus {
   border-color: var(--ink);
-  box-shadow: 0 0 0 3px #173e3512;
+  box-shadow: 0 0 0 3px #30343812;
 }
 .will-reveal {
   transform: translateY(12px);
@@ -2404,4 +2404,89 @@ h2 {
     display: block;
     min-height: 0;
   }
+}
+
+/* Branding supplied on the L&R business card. */
+:root {
+  --orange: #b44723;
+}
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+.brand-name {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  border: 0;
+  padding: 0;
+}
+.brand-name > span {
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--orange);
+  font-weight: 650;
+}
+.brand {
+  gap: 12px;
+}
+.site-header {
+  border-top: 3px solid var(--orange);
+}
+.button {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.button:is(:hover, :focus-visible) {
+  background: #933719;
+  border-color: #933719;
+}
+.contact-section {
+  border-top-color: var(--orange);
+}
+.contact-people {
+  margin-top: 18px;
+  max-width: 330px;
+  display: grid;
+  gap: 10px;
+}
+.contact-people a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-block: 10px;
+  border-bottom: 1px solid #ffffff30;
+  font-size: 13px;
+  min-height: 48px;
+}
+.contact-people strong {
+  font-weight: 550;
+  white-space: nowrap;
+}
+.contact-people a:is(:hover, :focus-visible) {
+  color: var(--lime);
+}
+@media (max-width: 620px) {
+  .brand-logo {
+    width: 43px;
+    height: 43px;
+  }
+  .brand-name {
+    font-size: 16px;
+  }
+  .brand-name > span {
+    font-size: 8px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand-name {
+    padding: 0;
+  }
+}
+.button {
+  color: #fff;
 }

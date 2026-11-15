@@ -18,7 +18,7 @@ test("all local assets load and verified business details remain available", asy
   await expect(page.locator(".service-card")).toHaveCount(4);
   await expect(page.locator(".contact-phone")).toHaveAttribute(
     "href",
-    "tel:+41799076396",
+    "tel:+41625357485",
   );
   await expect(page.locator(".contact-email")).toHaveAttribute(
     "href",
@@ -219,4 +219,47 @@ test("Premium V2 enquiry link and motion preferences work with keyboard navigati
       .first()
       .evaluate((element) => getComputedStyle(element).transitionDuration),
   ).toBe("0s");
+});
+
+test("business-card contacts and every local link resolve", async ({
+  page,
+  request,
+}) => {
+  for (const route of ["/", "/bildnachweise.html"]) {
+    await page.goto(route);
+    const links = await page
+      .locator("a[href]")
+      .evaluateAll((elements) => elements.map((a) => a.getAttribute("href")));
+    for (const href of new Set(links)) {
+      if (href.startsWith("#")) {
+        expect(await page.locator(href).count()).toBe(1);
+      } else if (href.startsWith("tel:")) {
+        expect([
+          "tel:+41625357485",
+          "tel:+41799076396",
+          "tel:+41765026171",
+        ]).toContain(href);
+      } else if (href.startsWith("mailto:")) {
+        expect(href).toBe("mailto:info@lrtransporte.ch");
+      } else if (!href.startsWith("https:")) {
+        expect((await request.get(href)).ok()).toBe(true);
+      }
+    }
+  }
+  await page.goto("/");
+  await expect(
+    page.getByRole("link", { name: /Besarta Selmani/ }),
+  ).toHaveAttribute("href", "tel:+41799076396");
+  await expect(page.getByRole("link", { name: /Nezir Kuqi/ })).toHaveAttribute(
+    "href",
+    "tel:+41765026171",
+  );
+  const business = JSON.parse(
+    await page.locator('script[type="application/ld+json"]').textContent(),
+  );
+  expect(business.telephone).toBe("+41625357485");
+  expect(business.contactPoint.map((person) => person.telephone)).toEqual([
+    "+41799076396",
+    "+41765026171",
+  ]);
 });
