@@ -153,3 +153,36 @@ test("essential content, navigation and FAQ remain usable without JavaScript", a
   await expect(page.locator("details").first()).toHaveAttribute("open", "");
   await context.close();
 });
+
+for (const width of [390, 1440]) {
+  test(`local photography loads with responsive crops at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    const external = [];
+    page.on("request", (request) => {
+      if (!request.url().startsWith("http://127.0.0.1:8011"))
+        external.push(request.url());
+    });
+    await page.goto("/");
+    const photos = page.locator(".editorial-photo");
+    await expect(photos).toHaveCount(3);
+    for (const photo of await photos.all()) {
+      await photo.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() =>
+          photo.evaluate((img) => img.complete && img.naturalWidth > 0),
+        )
+        .toBe(true);
+      expect(
+        await photo.evaluate((img) => getComputedStyle(img).objectFit),
+      ).toBe("cover");
+      expect(await photo.getAttribute("alt")).toBeTruthy();
+      expect(
+        await photo.evaluate((img) => new URL(img.currentSrc).pathname),
+      ).toMatch(/^\/assets\/images\/.+\.webp$/);
+    }
+    await expect(page.locator(".stock-label")).toHaveCount(3);
+    expect(external).toEqual([]);
+  });
+}

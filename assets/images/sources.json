@@ -1,0 +1,91 @@
+{
+  "photos": [
+    {
+      "id": 7203775,
+      "title": "Piles of carton containers on floor in new house",
+      "source": "https://www.pexels.com/photo/piles-of-carton-containers-on-floor-in-new-house-7203775/",
+      "creator": {
+        "@type": "Person",
+        "name": "SHVETS production",
+        "url": "https://www.pexels.com/@shvets-production/"
+      },
+      "license": "https://www.pexels.com/license/",
+      "verified": "2026-11-15",
+      "files": [
+        {
+          "path": "assets/images/umzug-1440.webp",
+          "bytes": 87130,
+          "sha256": "08f5f77d754e7b2e74c447c3d1d3dfb94f380edb2b53cc6a867f7957e5983d3f"
+        },
+        {
+          "path": "assets/images/umzug-480.webp",
+          "bytes": 9328,
+          "sha256": "c621355bb922e50c5c898b133b79cb389e8c6618254a27b3f998caf32f00856d"
+        },
+        {
+          "path": "assets/images/umzug-960.webp",
+          "bytes": 32840,
+          "sha256": "6d298dbf297b72316b562669cf9c65ddc78000e2ae7316959ea49e08147d4a98"
+        }
+      ]
+    },
+    {
+      "id": 4554242,
+      "title": "Brown Cardboard Box on Brown Cardboard Box",
+      "source": "https://www.pexels.com/photo/brown-cardboard-box-on-brown-cardboard-box-4554242/",
+      "creator": {
+        "@type": "Person",
+        "name": "cottonbro studio",
+        "url": "https://www.pexels.com/@cottonbro/"
+      },
+      "license": "https://www.pexels.com/license/",
+      "verified": "2026-11-15",
+      "files": [
+        {
+          "path": "assets/images/kartons-1440.webp",
+          "bytes": 108232,
+          "sha256": "f81a34f08da26a09d10e5b3c04633251b5e8bb92c2855b9ef71296714d9ee511"
+        },
+        {
+          "path": "assets/images/kartons-480.webp",
+          "bytes": 13664,
+          "sha256": "d6fcf8ad8883e4b25fb911aa680a5a72feb5c9958ce3a31a980f73cb66daf751"
+        },
+        {
+          "path": "assets/images/kartons-960.webp",
+          "bytes": 43214,
+          "sha256": "19553cfe3c03385c057429d6d3ab0d140ec1eeb8e38098b776322b791b551248"
+        }
+      ]
+    },
+    {
+      "id": 8962864,
+      "title": "Black Backpack on Yellow Couch Beside Boxes",
+      "source": "https://www.pexels.com/photo/black-backpack-on-yellow-couch-beside-boxes-8962864/",
+      "creator": {
+        "@type": "Person",
+        "name": "Ivan S",
+        "url": "https://www.pexels.com/@ivan-s/"
+      },
+      "license": "https://www.pexels.com/license/",
+      "verified": "2026-11-15",
+      "files": [
+        {
+          "path": "assets/images/moebel-1440.webp",
+          "bytes": 50508,
+          "sha256": "211db96d2d6cf8e831821ca7104ea9ca05488bf96343946352f3780efd8913a0"
+        },
+        {
+          "path": "assets/images/moebel-480.webp",
+          "bytes": 9898,
+          "sha256": "b8affe009278cb3e8122e54ced3f498b44c309987c41be58914a5efaf7a968aa"
+        },
+        {
+          "path": "assets/images/moebel-960.webp",
+          "bytes": 26918,
+          "sha256": "fb7a1a934449a97646aa939630fae5ed8ac104c271580c526b6882eae0b1e230"
+        }
+      ]
+    }
+  ]
+}

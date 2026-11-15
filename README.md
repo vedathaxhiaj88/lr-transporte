@@ -29,7 +29,7 @@ Wenn ein System-Chromium vorhanden ist, entfällt der Browser-Download:
 CHROMIUM_PATH=/usr/bin/chromium npm test
 ```
 
-Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 11 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
+Playwright startet einen eigenen lokalen Testserver auf Port 8011. Die 13 Tests prüfen unter anderem Layout und Navigation bei 320, 390, 768, 1024 und 1440 Pixeln, Tastaturbedienung, Kontaktdaten, Formularvalidierung, E-Mail-Inhalt, Kopier-Fallback, reduzierte Bewegung, Nutzung ohne JavaScript und WCAG-2.1-AA-Regeln mit axe. Automatisierte Scans ersetzen keine vollständige manuelle Barrierefreiheitsprüfung.
 
 ## Dateien
 
@@ -53,16 +53,10 @@ Das Formular validiert die Angaben und erstellt einen codierten `mailto:`-Link. 
 
 Die Website lädt keine externen Schriften, Tracking-Skripte oder anderen externen Ressourcen. Es wurden keine Bewertungen, Zertifizierungen, Preise, Öffnungszeiten oder Angaben zur Firmengeschichte ergänzt.
 
-## Noch offen: Fotografien
+## Fotografien
 
-Die gewünschte Fotografie ist **noch nicht umgesetzt**. Die Cloud-Netzwerkrichtlinie blockierte die angefragten Fotografie- und Lizenzquellen mit HTTP 403. Deshalb sind momentan ausschliesslich eigene typografische Gestaltungselemente und einfache Symbole eingebunden; es gibt keine nicht verifizierten Fotos, Hotlinks oder defekten Bildplatzhalter.
+Drei visuell geprüfte Pexels-Symbolbilder ergänzen das Startbild und die Leistungen Privatumzüge und Möbeltransporte. Urheber, Originalquellen und Lizenz sind in `bildnachweise.html` dokumentiert (geprüft am 15. November 2026). Die Pexels-Lizenz erlaubt kommerzielle Website-Nutzung und Bearbeitungen. Die Bilder zeigen keine Mitarbeitenden oder Firmenfahrzeuge.
 
-Zum Abschliessen müssen `www.pexels.com` und `images.pexels.com` in den Internet-Einstellungen erreichbar sein oder geeignete eigene Fotos mit geklärten Nutzungsrechten vorliegen. Dann:
-
-1. Relevante Aufnahmen von Lieferwagen, Möbeltransport oder Be-/Entladen auswählen und visuell prüfen. Keine grossen Lastwagen oder sachfremden Motive verwenden.
-2. Originalquelle, Urheber und Lizenz dokumentieren; ausschliesslich geklärte Nutzungsrechte verwenden.
-3. Lokale, passend dimensionierte WebP-/AVIF-Dateien mit geeigneten Alternativtexten und festen Abmessungen einbinden. Hero-Bild priorisieren, weitere Bilder verzögert laden.
-4. Typografische Bildflächen ersetzen und `bildnachweise.html` aktualisieren. Stockaufnahmen als Symbolbilder kenntlich machen.
-5. Responsive Darstellung, Ladeverhalten und Browserprüfungen erneut kontrollieren.
+`assets/images/` enthält lokale WebP-Varianten mit 480, 960 und 1440 Pixeln Breite. `srcset` und `sizes` steuern die Auswahl; `object-fit` und responsive Bildpositionen den Ausschnitt. Das Startbild hat hohe Ladepriorität, Leistungsbilder werden verzögert geladen. Feste Bildabmessungen und reservierte Bildflächen verhindern Layoutsprünge. Es werden keine externen Bildressourcen geladen.
 
 Canonical-URL und `og:url` werden erst ergänzt, wenn die endgültige öffentliche Website-Adresse feststeht. Der dezente Hinweis «Website-Demo» bleibt sichtbar. Die Arbeiten liegen auf `feature/premium-redesign`; es wurde weder nach `main` gemergt noch zu Cloudflare deployt.
