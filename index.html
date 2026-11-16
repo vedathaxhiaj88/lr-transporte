@@ -976,6 +976,9 @@
                 Lift.</span
               >
             </div>
+            <!-- Replace TURNSTILE_SITE_KEY after creating a Cloudflare Turnstile widget. -->
+            <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY"></div>
+            <div class="field" aria-hidden="true" style="position:absolute;left:-9999px"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off" /></div>
             <button class="button form-submit" type="submit">
               Anfrage senden
               <span aria-hidden="true"
@@ -1033,5 +1036,6 @@
         </div>
       </div>
     </footer>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </body>
 </html>
