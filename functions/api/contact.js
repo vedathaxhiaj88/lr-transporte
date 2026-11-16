@@ -53,6 +53,7 @@ export async function onRequestPost({ request, env }) {
     "L&R Transporte Selmani",
     "https://lrtransporte.ch",
   ].join("\n");
+  const confirmationHtml = `<!doctype html><html lang="de"><body style="margin:0;padding:24px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;color:#222"><div style="max-width:560px;margin:auto;background:#fff;padding:28px;border-radius:8px"><h2 style="margin-top:0;color:#222">L&amp;R Transporte Selmani</h2><p>Guten Tag ${escapeHtml(name)},</p><p>Vielen Dank für Ihre Anfrage bei L&amp;R Transporte Selmani.</p><p>Wir haben Ihre Nachricht erhalten und werden uns so schnell wie möglich bei Ihnen melden.</p><p>Freundliche Grüsse<br><strong>L&amp;R Transporte Selmani</strong></p><p><a href="https://lrtransporte.ch" style="color:#b84623;text-decoration:underline">Besuchen Sie unsere Website</a></p></div></body></html>`;
   try {
     const confirmation = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -63,6 +64,7 @@ export async function onRequestPost({ request, env }) {
         reply_to: "info@lrtransporte.ch",
         subject: "Ihre Anfrage bei L&R Transporte – Eingangsbestätigung",
         text: confirmationText,
+        html: confirmationHtml,
       }),
     });
     if (!confirmation.ok) console.error("Customer confirmation email rejected by provider", confirmation.status);
