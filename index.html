@@ -906,9 +906,8 @@
           <form
             class="enquiry-form"
             id="enquiry-form"
-            action="mailto:info@lrtransporte.ch"
+            action="/api/contact"
             method="post"
-            enctype="text/plain"
           >
             <div class="form-heading">
               <h3>Ihr Transport beginnt hier.</h3>
@@ -978,7 +977,7 @@
               >
             </div>
             <button class="button form-submit" type="submit">
-              E-Mail vorbereiten
+              Anfrage senden
               <span aria-hidden="true"
                 ><svg
                   class="arrow-icon"
@@ -996,52 +995,9 @@
                   /></svg
               ></span>
             </button>
-            <p class="form-note">
-              Bereitet Ihre Anfrage vor. Anschliessend öffnen Sie die E-Mail und
-              senden sie selbst ab. Dieses Formular speichert keine Angaben auf
-              einem Server.
-            </p>
-            <div class="form-status" id="form-status" hidden>
-              <p role="status">
-                Ihre Anfrage ist vorbereitet. Öffnen Sie die E-Mail oder
-                kopieren Sie den Text und senden Sie ihn an
-                <a href="mailto:info@lrtransporte.ch">info@lrtransporte.ch</a>
-                senden.
-              </p>
-              <a
-                class="button email-draft-link"
-                id="email-draft-link"
-                href="mailto:info@lrtransporte.ch"
-                target="_blank"
-                rel="noopener"
-                >Im E-Mail-Programm öffnen
-                <svg
-                  class="arrow-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M5 19 19 5M5 5h14v14"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  /></svg></a
-              ><label for="enquiry-copy">Text Ihrer Anfrage</label
-              ><textarea id="enquiry-copy" rows="6" readonly></textarea
-              ><button class="copy-button" id="copy-enquiry" type="button">
-                Anfragetext kopieren</button
-              ><span id="copy-status" role="status"></span>
-            </div>
-            <noscript
-              ><p class="form-note">
-                Ohne JavaScript wird Ihr E-Mail-Programm über die Formularaktion
-                geöffnet. Sie können auch direkt an info@lrtransporte.ch
-                schreiben.
-              </p></noscript
-            >
+            <p class="form-note">Ihre Angaben werden nur zur Bearbeitung Ihrer Anfrage übermittelt.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+            <noscript><p class="form-note">Bitte aktivieren Sie JavaScript, um die Anfrage zu senden, oder schreiben Sie direkt an info@lrtransporte.ch.</p></noscript>
           </form>
         </div>
       </section>
