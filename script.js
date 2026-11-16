@@ -105,8 +105,12 @@ if (form) {
     copyStatus.textContent = "";
     document.querySelector("#form-status").hidden = false;
     const subject = `Anfrage – ${data.get("service")}`;
-    document.querySelector("#email-draft-link").href =
+    const mailtoUrl =
       `mailto:info@lrtransporte.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.querySelector("#email-draft-link").href = mailtoUrl;
+    // Open the user's configured email application directly on submit.
+    // If none is configured, the visible link and copy option remain available.
+    window.location.href = mailtoUrl;
   });
   document
     .querySelector("#copy-enquiry")
