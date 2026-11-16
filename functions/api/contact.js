@@ -2,7 +2,7 @@
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
   status, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
 });
-const escapeHtml = (value) => value.replace(/[&<>"\x27]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "\x27": "&#39;" })[char]);
+const escapeHtml = (value) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const clean = (value, max) => typeof value === "string" ? value.trim().slice(0, max) : "";
 export async function onRequestPost({ request, env }) {
   const origin = request.headers.get("Origin");
@@ -32,7 +32,7 @@ export async function onRequestPost({ request, env }) {
   // Some mail clients ignore Reply-To and reply to the noreply sender instead.
   // Give the recipient a prominent, explicit link to reply to the customer.
   const replySubject = `Re: Website-Anfrage: ${service || "Transport"}`;
-  const replyLink = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(replySubject)}`;
+  const replyLink = `mailto:${email}?subject=${encodeURIComponent(replySubject)}`;
   const html = `<p><strong>Neue Website-Anfrage</strong></p><p><a href="${escapeHtml(replyLink)}" style="display:inline-block;padding:12px 18px;background:#b84623;color:#fff;text-decoration:none;border-radius:4px;font-weight:bold">Dem Kunden antworten</a></p><p><strong>Kunden-E-Mail:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p><p><strong>Name:</strong> ${escapeHtml(name)}<br><strong>Telefon:</strong> ${escapeHtml(phone || "Nicht angegeben")}<br><strong>Leistung:</strong> ${escapeHtml(service)}</p><p><strong>Nachricht:</strong></p><p style="white-space:pre-wrap">${escapeHtml(message)}</p><p style="color:#555;font-size:12px">Bitte zum Antworten auf «Dem Kunden antworten» klicken. Die normale Antworten-Funktion kann an noreply@lrtransporte.ch gehen.</p>`;
   const sent = await fetch("https://api.resend.com/emails", {
     method: "POST",
