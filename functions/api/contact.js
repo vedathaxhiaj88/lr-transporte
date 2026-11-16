@@ -14,21 +14,21 @@ export async function onRequestPost({ request, env }) {
   let data;
   try { data = await request.json(); } catch { return json({ error: "Invalid request" }, 400); }
   if (!data || typeof data !== "object") return json({ error: "Invalid request" }, 400);
-  if (data.website) return json({ ok: true }); // honeypot
+  if (data.website) return json({ error: "Rejected" }, 400); // honeypot
   const name = clean(data.name, 120);
   const email = clean(data.email, 200);
   const phone = clean(data.phone, 60);
   const service = clean(data.service, 80);
   const message = clean(data.message, 3000);
   const token = clean(data["cf-turnstile-response"], 4096);
-  if (!name || !message || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) || !token)
+  if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !token)
     return json({ error: "Missing or invalid fields" }, 400);
   const challenge = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ secret: env.TURNSTILE_SECRET_KEY, response: token, remoteip: request.headers.get("CF-Connecting-IP") }),
   });
   if (!challenge.ok || !(await challenge.json()).success) return json({ error: "Verification failed" }, 400);
-  const body = [`Name: ${name}`, `E-Mail: ${email}`, `Telefon: ${phone || "Nicht angegeben"}`, `Leistung: ${service}`, "", message].join("\\n");
+  const body = [`Name: ${name}`, `E-Mail: ${email}`, `Telefon: ${phone || "Nicht angegeben"}`, `Leistung: ${service}`, "", message].join("\n");
   const sent = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
