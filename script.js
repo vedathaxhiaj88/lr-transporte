@@ -82,46 +82,28 @@ if (year) year.textContent = new Date().getFullYear();
 
 const form = document.querySelector("#enquiry-form");
 if (form) {
-  const copyText = document.querySelector("#enquiry-copy");
-  const copyStatus = document.querySelector("#copy-status");
-  form.addEventListener("submit", (event) => {
+  const status = document.querySelector("#form-status");
+  const submitButton = form.querySelector('button[type="submit"]');
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const data = new FormData(form);
-    const body = [
-      "Guten Tag L&R Transporte Selmani",
-      "",
-      `Ich möchte eine Anfrage für ${data.get("service")} stellen.`,
-      "",
-      `Name: ${String(data.get("name")).trim()}`,
-      `Telefon: ${String(data.get("phone")).trim() || "Nicht angegeben"}`,
-      `E-Mail: ${String(data.get("email")).trim()}`,
-      "",
-      String(data.get("message")).trim(),
-      "",
-      "Freundliche Grüsse",
-      String(data.get("name")).trim(),
-    ].join("\n");
-    copyText.value = body;
-    copyStatus.textContent = "";
-    document.querySelector("#form-status").hidden = false;
-    const subject = `Anfrage – ${data.get("service")}`;
-    const mailtoUrl =
-      `mailto:info@lrtransporte.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    document.querySelector("#email-draft-link").href = mailtoUrl;
-    // Open the user's configured email application directly on submit.
-    // If none is configured, the visible link and copy option remain available.
-    window.location.href = mailtoUrl;
+    if (!form.reportValidity()) return;
+    submitButton.disabled = true;
+    status.hidden = false;
+    status.textContent = "Ihre Anfrage wird gesendet …";
+    try {
+      const data = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error("Delivery failed");
+      status.textContent = "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.";
+      form.reset();
+    } catch {
+      status.textContent = "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie an info@lrtransporte.ch.";
+    } finally {
+      submitButton.disabled = false;
+    }
   });
-  document
-    .querySelector("#copy-enquiry")
-    .addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(copyText.value);
-        copyStatus.textContent = "Anfragetext kopiert.";
-      } catch {
-        copyText.focus();
-        copyText.select();
-        copyStatus.textContent = "Bitte kopieren Sie den markierten Text.";
-      }
-    });
 }
