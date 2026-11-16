@@ -41,6 +41,34 @@ export async function onRequestPost({ request, env }) {
       subject: `Website-Anfrage: ${service || "Transport"}`, text: body, html }),
   });
   if (!sent.ok) return json({ error: "Delivery failed" }, 502);
+  // Acknowledge receipt without echoing user-supplied content, to avoid mail abuse.
+  // Confirmation is best-effort: the business enquiry has already been delivered.
+  const confirmationText = [
+    `Guten Tag ${name},`,
+    "",
+    "Vielen Dank für Ihre Anfrage bei L&R Transporte Selmani.",
+    "Wir haben Ihre Nachricht erhalten und werden uns so schnell wie möglich bei Ihnen melden.",
+    "",
+    "Freundliche Grüsse",
+    "L&R Transporte Selmani",
+    "https://lrtransporte.ch",
+  ].join("\\n");
+  try {
+    const confirmation = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from: env.CONTACT_FROM_EMAIL,
+        to: [email],
+        reply_to: "info@lrtransporte.ch",
+        subject: "Ihre Anfrage bei L&R Transporte – Eingangsbestätigung",
+        text: confirmationText,
+      }),
+    });
+    if (!confirmation.ok) console.error("Customer confirmation email rejected by provider", confirmation.status);
+  } catch (error) {
+    console.error("Customer confirmation email request failed", String(error));
+  }
   return json({ ok: true });
 }
 export function onRequestGet() { return json({ error: "Method not allowed" }, 405); }
