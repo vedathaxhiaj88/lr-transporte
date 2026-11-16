@@ -52,7 +52,7 @@ export async function onRequestPost({ request, env }) {
     "Freundliche Grüsse",
     "L&R Transporte Selmani",
     "https://lrtransporte.ch",
-  ].join("\\n");
+  ].join("\n");
   try {
     const confirmation = await fetch("https://api.resend.com/emails", {
       method: "POST",
